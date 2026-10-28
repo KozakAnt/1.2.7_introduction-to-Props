@@ -72,8 +72,8 @@ function App() {
 
 
       <InfoCard title="Интересы">
-  {!!userProfile.interests?.length ? (
-    <ul className="interests-list">
+      {userProfile.interests?.length ? (
+      <ul className="interests-list">
       {userProfile.interests.map((interest, index) => (
         <li key={index}>{interest}</li>
       ))}
