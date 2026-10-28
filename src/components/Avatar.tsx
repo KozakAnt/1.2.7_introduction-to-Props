@@ -1,7 +1,7 @@
 import defaultUserPhoto from '../assets/photo_default.svg';
 
 interface AvatarProps {
-  url?: string | null;
+  url?: string;
   alt: string;
 }
 

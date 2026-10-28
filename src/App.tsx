@@ -5,7 +5,7 @@ import './App.css';
 
 interface UserProfile {
   userName: string;
-  photoUrl?: string | null;
+  photoUrl?: string;
   userDescription: string;
   openForWork?: boolean;
   contactInfo: {
@@ -44,7 +44,6 @@ function App() {
   return (
     <>
       <div className="description">
-        {/* компонент аватар */}
         <Avatar
           url={userProfile.photoUrl}
           alt={userProfile.userName}
@@ -54,13 +53,11 @@ function App() {
       </div>
 
       <div className="main">
-        {/* карточка контактов */}
         <InfoCard title="Контактная информация">
           <p>Email: {userProfile.contactInfo.email}</p>
           <p>Телефон: {userProfile.contactInfo.phone}</p>
         </InfoCard>
 
-        {/* карточка местоположения */}
         <InfoCard title="Местоположение">
         {userProfile.location ? (
         <>
@@ -74,9 +71,8 @@ function App() {
         </InfoCard>
 
 
-        {/* карточка интересов */}
-       <InfoCard title="Интересы">
-  {userProfile.interests && userProfile.interests.length > 0 ? (
+      <InfoCard title="Интересы">
+  {!!userProfile.interests?.length ? (
     <ul className="interests-list">
       {userProfile.interests.map((interest, index) => (
         <li key={index}>{interest}</li>
